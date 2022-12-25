@@ -1,7 +1,7 @@
 #include <stdbool.h> // для типа bool            
 #include <string.h> // для strlen()
 #include <stdio.h>
-bool checkLuhn(char card_number[]) // принимаем в аргументы номер карты
+bool checkLuhn(const char* card_number) // принимаем в аргументы номер карты
 {
     int len = strlen(card_number);      // узнаем длину номера карты
     int number = 0;                     // текущая цифра в цикле (см. ниже)
@@ -33,7 +33,8 @@ bool checkLuhn(char card_number[]) // принимаем в аргументы �
 int main()
 {
  char num[] = "4276640540250042";
- int result = checkLuhn(num);
+ char* card_num = num;
+ int result = checkLuhn(card_num);
  printf("%d\n", result);
  return 0;
 }
